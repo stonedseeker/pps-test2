@@ -49,11 +49,10 @@ float input_truck_weight()
   return truckWeight;
 }
 
-float find_weight()
+float find_weight(int a, Camel *c)
 { 
- Camel c;
- c.weight= PI*pow(c.radius,3)*sqrt(c.length*c.height);
- return c.weight;
+ c->weight= PI*pow(c->radius,3)*sqrt(c->length*c->height);
+ return c->weight;
 }
 
 float weight_n_camels(int n,Camel c[n])
@@ -61,8 +60,7 @@ float weight_n_camels(int n,Camel c[n])
  float weight = 0;
  for(int i=0;i<n;i++)
  {
-   c[i].weight += find_weight();
-  weight = c[i].weight;
+   weight += find_weight(n,&c[i]);
  }
  return weight;
 }
@@ -81,13 +79,11 @@ void output(float total_truck_weight)
 int main()
 {
   int a,e;
-  float d,f;
-  Camel c;
+  float f;
   a=input_no_camels();
   e=input_truck_weight();
   Camel b[a];
   array_(a,b);
-  weight_n_camels(a,b);
   f=compute_total_weight(a,b,e);
   output(f);
 }

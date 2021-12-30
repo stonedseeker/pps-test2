@@ -12,7 +12,7 @@ int arrayLength()
  return a;
 }
 
-void array_(int n, int a[n])
+void input_numbers(int n, int a[n])
 {
  printf("Enter the elements of array\n");
  for (int i=0;i<n;i++)
@@ -23,41 +23,35 @@ void array_(int n, int a[n])
 
 float odd_average(int n, int a[n])
 { 
-  float sum, average;
+  int sum=0, count=0;
+  float average; 
   {
   for(int i=0; i<n; i++)
     {
      if(a[i] % 2 != 0)
      {
         sum += a[i];
-        average = sum/(sizeof(a[i]));
+        count +=1;
      }    
     }
   }
-  
+  average = sum/count;
   return average;
 }
-
 void output(int n, int a[n],float average)
-{ 
-  int i;
+{
   printf("The average of odd values in the array\n");
   for(int i=0;i<n-1;i++)
   {
-    if (a[i] % 2 != 0)
+    if(a[i] % 2 != 0)
     {
-        printf("%d+",a[i]);
+      printf("%d+",a[i]);
     }
   }
-   if (a[n-1] % 2)
-   {
-    printf("%d",a[n-1]);
-   }
+  for(int i) 
+  printf("%d=%f\n",a[n-1], average);
 
-   else printf("%d",a[n-2]);
-   
-   
-   printf("=%f",average);
+  }
 
 }
 
@@ -66,7 +60,7 @@ int main()
   int a;
   a=arrayLength();
   int b[a];
-  array_(a,b);
+  input_numbers(a,b);
   float c=odd_average(a,b);
   output(a,b,c);
 }

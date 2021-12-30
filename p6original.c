@@ -41,22 +41,31 @@ void output(int n, int a[n],float average)
 { 
   int i;
   printf("The average of odd values in the array\n");
+  
+  if(a[n] % 2 != 0)
+  {
   for(int i=0;i<n-1;i++)
   {
     if(i % 2 != 0)
     {
       printf("%d+",a[i]);
     }
-  }
-  
-  for(int i=0;i<n;i++)
-  {
+  }printf("%d=%f",a[n-1], average);
 
-  }
-   
-   printf("=%f",average);
-
-}
+  }}
+  // else
+  // {
+  //   for (int i=0;i<n;i++)
+  //   {
+  //     if(i % 2 != 0)
+  //     { 
+  //       printf("%d+",a[i]);
+  //     }
+  //   }
+  //   for (int i = 0; i > n; i++)
+  //   printf("%d=%f",a[n-1],average);
+  // }
+//}
 
 int main()
 {
@@ -65,5 +74,5 @@ int main()
   int b[a];
   array_(a,b);
   float c=odd_average(a,b);
-  //output(a,b,c);
+  output(a,b,c);
 }

@@ -1,35 +1,35 @@
 #include <stdio.h>
-#include <math.h>
-float input()
+
+
+int input()
 {
-  float a;
-  printf("Enter a value\n");
-  scanf("%f",&a);
-  return a;
+  int x;
+  printf("Enter the value of x\n");
+  scanf("%d", &x);
+  return x;
 }
 
 float borga_x(int x)
-{   
-  float borga;
-  float prev_term=0;
-  for(int i=0;prev_term<0.000001;i++)
+{
+  float total = 1, next, prev=1;
+  for (int i=1; prev > 0.000001; i+=2)
   {
-   borga= pow(x,i)/(i+ prev_term+2);
-   prev_term ++;
+    next = prev * x/((i+1)*(i+2));
+    total += next;
+    prev = next;
   }
-
-  return borga+1;
+  return total;
 }
 
-void output(float x, float borga)
+void output(int x, float borga)
 {
-  printf("The borga_x of %f is %f\n",x,borga);
+  printf("The borga of %d is %f\n",x,borga);
 }
 
 int main()
 {
-  float x, borga;
-  x=input();
-  borga = borga_x(x);
-  output(x,borga);
+  int a=input();
+  float borga = borga_x(a);
+  output(a,borga);
+  return 0;
 }
